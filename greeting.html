@@ -39,10 +39,10 @@ function tick(){
   document.getElementById('ap').textContent=h<12?'am':'pm';
   document.getElementById('d').textContent=days[now.getDay()]+', '+now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
   let gr;
-  if(h>=5&&h<12) gr='Good morning, <em>Ladi</em>';
-  else if(h>=12&&h<17) gr='Good afternoon, <em>Ladi</em>';
-  else if(h>=17&&h<22) gr='Good evening, <em>Ladi</em>';
-  else gr='Working late, <em>Ladi</em>';
+  if(h>=5&&h<12) gr='Good morning, <em>Andrea</em>';
+  else if(h>=12&&h<17) gr='Good afternoon, <em>Andrea</em>';
+  else if(h>=17&&h<22) gr='Good evening, <em>Andrea</em>';
+  else gr='Working late, <em>Andrea</em>';
   document.getElementById('g').innerHTML=gr;
 }
 tick();
