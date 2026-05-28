@@ -5,48 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Greeting</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:transparent;font-family:'DM Mono',monospace;padding:1.5rem}
-  .time-block{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-  .time{font-size:48px;font-weight:500;color:#1a1a1a;letter-spacing:-2px;line-height:1}
-  .ampm{font-size:14px;color:#888;letter-spacing:1px;text-transform:uppercase}
-  .date{font-size:13px;color:#aaa;letter-spacing:0.5px;margin-bottom:20px}
-  .divider{width:40px;height:1px;background:#ddd;margin-bottom:20px}
-  .greeting{font-family:'DM Serif Display',serif;font-size:28px;color:#1a1a1a;line-height:1.2}
-  .greeting em{font-style:italic;color:#666}
+  body{background:transparent;padding:1.25rem}
+  .greeting{font-family:'Lora',serif;font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:4px}
+  .date{font-family:'Lora',serif;font-size:13px;color:#999;font-weight:400}
 </style>
 </head>
 <body>
-  <div class="time-block">
-    <span class="time" id="t"></span>
-    <span class="ampm" id="ap"></span>
-  </div>
-  <div class="date" id="d"></div>
-  <div class="divider"></div>
   <div class="greeting" id="g"></div>
+  <div class="date" id="d"></div>
 <script>
 const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
-function pad(n){return n<10?'0'+n:n}
 function tick(){
   const now=new Date();
   const h=now.getHours();
-  const m=now.getMinutes();
-  const s=now.getSeconds();
-  const h12=h%12||12;
-  document.getElementById('t').textContent=h12+':'+pad(m)+':'+pad(s);
-  document.getElementById('ap').textContent=h<12?'am':'pm';
-  document.getElementById('d').textContent=days[now.getDay()]+', '+now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
   let gr;
-  if(h>=5&&h<12) gr='Good morning, <em>Andrea</em>';
-  else if(h>=12&&h<17) gr='Good afternoon, <em>Andrea</em>';
-  else if(h>=17&&h<22) gr='Good evening, <em>Andrea</em>';
-  else gr='Working late, <em>Andrea</em>';
-  document.getElementById('g').innerHTML=gr;
+  if(h>=5&&h<12) gr='Good morning, Andrea';
+  else if(h>=12&&h<17) gr='Good afternoon, Andrea';
+  else if(h>=17&&h<22) gr='Good evening, Andrea';
+  else gr='Working late, Andrea';
+  document.getElementById('g').textContent=gr;
+  document.getElementById('d').textContent=days[now.getDay()]+', '+now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
 }
 tick();
-setInterval(tick,1000);
 </script>
 </body>
 </html>
